@@ -4,6 +4,8 @@ An interactive topical quiz for the Malaysian **Sejarah Tingkatan 1 (KSSM)** syl
 
 Made for students to check their own understanding chapter by chapter, and built so that any teacher can swap in their own questions in about ten minutes.
 
+**▶ Try it live: <https://izaninsofya.github.io/kuiz-sejarah-t1/>**
+
 ![Home screen](docs/home.png)
 
 ![Answering a question](docs/quiz.png)
@@ -298,5 +300,7 @@ Markah pelajar disimpan dalam pelayar mereka sendiri sahaja; tiada data dihantar
 made with ❤️ by **Izanin Sofya**
 
 The questions were written from scratch against the **Sejarah Tingkatan 1 KSSM** syllabus and the Ministry of Education's [digital textbook listing](https://sites.google.com/moe-dl.edu.my/bidang-kemanusiaan-sebaru/panitia-sejarah/buku-teks-digital). No text is reproduced from the textbook — the questions and explanations are original wording covering the same syllabus content. Verify against the current textbook before classroom use, since syllabus details are revised from time to time.
+
+**Licence:** [MIT](LICENSE) — you are free to use, copy, modify and redistribute this, including for your own school or commercially, as long as the copyright notice stays in place. Fork it and make it yours.
 
 If you do reuse or adapt this, a link back is appreciated but not required. If you build a version for another subject, I'd love to see it.

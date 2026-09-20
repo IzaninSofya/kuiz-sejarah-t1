@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kuiz Sejarah Tingkatan 1</title>
+<meta name="description" content="Kuiz topikal interaktif Sejarah Tingkatan 1 KSSM — 8 bab, 80 soalan, dengan watak comel dan animasi.">
+<meta name="author" content="Izanin Sofya">
+<meta name="theme-color" content="#ff9a5a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kuiz Sejarah Tingkatan 1">
+<meta property="og:description" content="Kuiz topikal interaktif Sejarah Tingkatan 1 KSSM — 8 bab, 80 soalan, watak comel dan animasi.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='11' y='15' width='78' height='72' rx='33' fill='%237ad0c4'/%3E%3Crect x='27' y='9' width='46' height='7' rx='3.5' fill='%234b3a2f'/%3E%3Ccircle cx='37' cy='50' r='6.5' fill='%2341312a'/%3E%3Ccircle cx='63' cy='50' r='6.5' fill='%2341312a'/%3E%3Cpath d='M41 63 q9 9 18 0' stroke='%2341312a' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#fff7ec;
+  --paper2:#ffeede;
+  --ink:#4b3a2f;
+  --ink-soft:#9b8474;
+  --card:#ffffff;
+  --line:#f2e2d0;
+  --brand:#ff9a5a;
+  --brand-dk:#e57c3d;
+  --good:#37c98a;
+  --good-dk:#27a870;
+  --good-bg:#e6faf1;
+  --bad:#ff6b81;
+  --bad-dk:#e14d64;
+  --bad-bg:#ffecef;
+  --gold:#ffc53d;
+  --r:24px;
+  --shadow:0 4px 0 rgba(122,92,70,.16), 0 10px 22px rgba(122,92,70,.10);
+  --font:"Fredoka","Baloo 2","Quicksand","Varela Round","Nunito",-apple-system,"Segoe UI Rounded","Comic Sans MS",system-ui,sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--font);
+  color:var(--ink);
+  background:var(--paper);
+  background-image:
+    radial-gradient(1100px 500px at 10% -8%, #ffe6c9 0%, transparent 60%),
+    radial-gradient(900px 480px at 100% 0%, #d9f2ff 0%, transparent 55%),
+    radial-gradient(800px 500px at 50% 115%, #ffe0ea 0%, transparent 60%);
+  background-attachment:fixed;
+  min-height:100vh;
+  font-size:17px;
+  line-height:1.5;
+  overflow-x:hidden;
+}
+/* ---------- floating background doodles ---------- */
+.sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.sky i{position:absolute;display:block;opacity:.32;animation:drift linear infinite}
+@keyframes drift{
+  0%{transform:translate3d(0,12px,0) rotate(0deg)}
+  50%{transform:translate3d(0,-14px,0) rotate(8deg)}
+  100%{transform:translate3d(0,12px,0) rotate(0deg)}
+}
+/* ---------- layout ---------- */
+.app{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:22px 16px 90px}
+.screen{display:none;animation:screenIn .42s cubic-bezier(.22,1.2,.36,1) both}
+.screen.active{display:block}
+@keyframes screenIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:none}}
+/* ---------- home header ---------- */
+.hero{text-align:center;padding:6px 0 4px}
+.hero .crew{display:flex;justify-content:center;align-items:flex-end;gap:2px;margin-bottom:2px}
+.hero .crew span{display:block}
+.hero .crew span:nth-child(1){animation:bob 3.1s ease-in-out infinite}
+.hero .crew span:nth-child(2){animation:bob 2.6s ease-in-out infinite .25s}
+.hero .crew span:nth-child(3){animation:bob 3.4s ease-in-out infinite .5s}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+h1{
+  font-family:"Baloo 2",var(--font);
+  font-size:clamp(28px,7.2vw,42px);
+  line-height:1.12;margin:6px 0 4px;letter-spacing:-.4px;
+  color:#3d2c22;
+}
+h1 em{font-style:normal;color:var(--brand-dk)}
+.sub{color:var(--ink-soft);margin:0 auto 16px;max-width:30em;font-size:15.5px}
+.pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#fff;border:2px solid var(--line);border-radius:999px;
+  padding:6px 14px;font-size:14px;font-weight:600;box-shadow:0 3px 0 rgba(122,92,70,.10)
+}
+/* ---------- overall progress ---------- */
+.overall{
+  background:var(--card);border:2px solid var(--line);border-radius:var(--r);
+  padding:14px 16px;margin:14px 0 18px;box-shadow:var(--shadow);
+  display:flex;align-items:center;gap:14px
+}
+.overall .txt{flex:1;min-width:0}
+.overall b{font-size:15px;display:block}
+.overall small{color:var(--ink-soft);font-size:13px}
+.bar{height:14px;border-radius:999px;background:#f3e7da;overflow:hidden;margin-top:8px;border:1px solid #ecdccb}
+.bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#ffc36b,var(--brand));transition:width .8s cubic-bezier(.22,1,.36,1)}
+/* ---------- topic grid ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.topic{
+  position:relative;text-align:left;cursor:pointer;
+  background:var(--card);border:2px solid var(--line);border-radius:var(--r);
+  padding:16px 14px 14px;box-shadow:var(--shadow);
+  font-family:inherit;font-size:16px;color:inherit;
+  transition:transform .18s cubic-bezier(.22,1.4,.4,1), box-shadow .18s, border-color .18s;
+  overflow:hidden;
+  animation:popIn .5s cubic-bezier(.22,1.3,.4,1) both;
+}
+@keyframes popIn{from{opacity:0;transform:translateY(14px) scale(.94)}to{opacity:1;transform:none}}
+.topic:hover,.topic:focus-visible{transform:translateY(-5px) rotate(-.6deg);box-shadow:0 10px 0 rgba(122,92,70,.14),0 18px 28px rgba(122,92,70,.14);outline:none;border-color:#e8d2b8}
+.topic:active{transform:translateY(-1px) scale(.99)}
+.topic .tint{position:absolute;inset:auto -30% -64% -30%;height:120px;border-radius:50%;opacity:.16}
+.topic .row{position:relative;display:flex;align-items:center;gap:10px}
+.topic .row>span:last-child{min-width:0;overflow-wrap:anywhere}
+.topic .who{flex:0 0 auto;animation:bob 3s ease-in-out infinite}
+.topic .bab{font-size:12.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--ink-soft)}
+.topic .nm{font-family:"Baloo 2",var(--font);font-size:19px;line-height:1.15;display:block;margin-top:1px;text-wrap:balance}
+.topic .meta{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px}
+.stars{letter-spacing:1px;font-size:15px;color:#e4d3c1}
+.stars b{color:var(--gold);font-weight:400}
+.score-chip{
+  font-size:12.5px;font-weight:600;border-radius:999px;padding:3px 10px;
+  background:#f7efe5;color:var(--ink-soft);border:1px solid #efe0cf;white-space:nowrap
+}
+.score-chip.done{background:var(--good-bg);color:var(--good-dk);border-color:#c8f0de}
+.score-chip.perfect{background:#fff4d6;color:#a9761a;border-color:#ffe3a1}
+/* ---------- buttons ---------- */
+.btn{
+  font-family:inherit;font-size:17px;font-weight:600;cursor:pointer;
+  border:none;border-radius:18px;padding:13px 22px;
+  background:var(--brand);color:#fff;
+  box-shadow:0 5px 0 var(--brand-dk);
+  transition:transform .12s, box-shadow .12s, filter .15s;
+}
+.btn:hover{filter:brightness(1.04)}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--brand-dk)}
+.btn.ghost{background:#fff;color:var(--ink);box-shadow:0 5px 0 #e7d6c4;border:2px solid var(--line)}
+.btn.ghost:active{box-shadow:0 1px 0 #e7d6c4}
+.btn.good{background:var(--good);box-shadow:0 5px 0 var(--good-dk)}
+.btn.good:active{box-shadow:0 1px 0 var(--good-dk)}
+.btn:focus-visible{outline:3px solid #ffd7b0;outline-offset:3px}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+/* ---------- quiz head ---------- */
+.qhead{display:flex;align-items:center;gap:10px;margin-bottom:0}
+.iconbtn{
+  font-family:inherit;font-size:20px;line-height:1;cursor:pointer;
+  width:44px;height:44px;flex:0 0 44px;border-radius:14px;border:2px solid var(--line);
+  background:#fff;color:var(--ink);box-shadow:0 4px 0 rgba(122,92,70,.12);
+}
+.iconbtn:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(122,92,70,.12)}
+.qhead .info{flex:1;min-width:0}
+.qhead .info b{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.streak{
+  font-size:13.5px;font-weight:700;border-radius:999px;padding:5px 11px;white-space:nowrap;
+  background:#fff3d9;color:#b07a15;border:2px solid #ffe2a8;transition:transform .25s
+}
+.streak.pulse{animation:pulse .5s cubic-bezier(.22,1.5,.4,1)}
+@keyframes pulse{0%{transform:scale(1)}45%{transform:scale(1.22) rotate(-4deg)}100%{transform:scale(1)}}
+/* ---------- question card ---------- */
+.qcard{
+  background:var(--card);border:2px solid var(--line);border-radius:28px;
+  padding:18px 18px 16px;box-shadow:var(--shadow);position:relative;margin-top:48px
+}
+.qcard.shake{animation:shake .45s}
+@keyframes shake{0%,100%{transform:translateX(0)}15%{transform:translateX(-9px)}30%{transform:translateX(8px)}45%{transform:translateX(-6px)}60%{transform:translateX(5px)}80%{transform:translateX(-2px)}}
+.buddy{position:absolute;top:-52px;right:12px;animation:bob 2.8s ease-in-out infinite}
+.buddy.jump{animation:jump .7s cubic-bezier(.24,1.4,.4,1)}
+@keyframes jump{0%{transform:translateY(0)}30%{transform:translateY(-26px) rotate(-8deg)}55%{transform:translateY(0)}72%{transform:translateY(-11px)}100%{transform:translateY(0)}}
+.buddy.woops{animation:woops .6s}
+@keyframes woops{0%,100%{transform:rotate(0)}25%{transform:rotate(-11deg) translateY(4px)}60%{transform:rotate(9deg) translateY(4px)}}
+.qtag{
+  display:inline-block;font-size:12px;font-weight:700;letter-spacing:.7px;text-transform:uppercase;
+  color:var(--ink-soft);background:#f8f0e6;border:1px solid #f0e2d2;border-radius:999px;padding:3px 10px;margin-bottom:8px
+}
+.qtext{font-family:"Baloo 2",var(--font);font-size:clamp(19px,4.6vw,23px);line-height:1.34;margin:0 64px 4px 0;letter-spacing:-.2px}
+.opts{display:grid;gap:10px;margin-top:16px}
+.opt{
+  display:flex;align-items:center;gap:12px;text-align:left;width:100%;
+  font-family:inherit;font-size:16.5px;color:var(--ink);cursor:pointer;
+  background:#fffdfa;border:2px solid var(--line);border-radius:18px;padding:13px 14px;
+  box-shadow:0 4px 0 rgba(122,92,70,.10);
+  transition:transform .14s cubic-bezier(.22,1.4,.4,1),border-color .15s,background .15s,box-shadow .14s;
+  animation:optIn .35s cubic-bezier(.22,1.3,.4,1) both;
+}
+@keyframes optIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:none}}
+.opt:hover:not(:disabled){transform:translateY(-3px);border-color:#ffcfa6;background:#fff8f0}
+.opt:active:not(:disabled){transform:translateY(2px);box-shadow:0 1px 0 rgba(122,92,70,.10)}
+.opt:focus-visible{outline:3px solid #ffd7b0;outline-offset:2px}
+.opt .key{
+  flex:0 0 34px;height:34px;display:grid;place-items:center;border-radius:12px;
+  background:#f4ece2;color:var(--ink-soft);font-weight:700;font-size:15px;transition:all .18s
+}
+.opt .lab{flex:1;min-width:0}
+.opt .mark{flex:0 0 auto;font-size:19px;opacity:0;transform:scale(.4);transition:all .3s cubic-bezier(.22,1.6,.4,1)}
+.opt.correct{background:var(--good-bg);border-color:#9fe7c8;box-shadow:0 4px 0 #b8ecd6}
+.opt.correct .key{background:var(--good);color:#fff}
+.opt.correct .mark{opacity:1;transform:scale(1)}
+.opt.wrong{background:var(--bad-bg);border-color:#ffb3c0;box-shadow:0 4px 0 #ffc6d0}
+.opt.wrong .key{background:var(--bad);color:#fff}
+.opt.wrong .mark{opacity:1;transform:scale(1)}
+.opt.dim{opacity:.55}
+.opt:disabled{cursor:default}
+/* ---------- feedback ---------- */
+.fb{
+  margin-top:14px;border-radius:20px;padding:14px 15px;border:2px dashed #e7d7c4;background:#fffaf3;
+  display:none;animation:fbIn .4s cubic-bezier(.22,1.3,.4,1) both
+}
+.fb.show{display:block}
+@keyframes fbIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.fb.ok{background:var(--good-bg);border-color:#a9e9cd}
+.fb.no{background:var(--bad-bg);border-color:#ffc0cb}
+.fb .title{font-family:"Baloo 2",var(--font);font-size:18px;margin:0 0 4px;display:flex;align-items:center;gap:8px}
+.fb p{margin:0;font-size:15.5px;color:#5c473a}
+.fb .why{font-size:12px;text-transform:uppercase;letter-spacing:.8px;font-weight:700;color:var(--ink-soft);margin:10px 0 2px}
+.qfoot{display:flex;justify-content:flex-end;margin-top:14px}
+.hint{text-align:center;color:var(--ink-soft);font-size:12.5px;margin-top:12px}
+kbd{font-family:var(--font);background:#fff;border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 6px;font-size:12px}
+/* ---------- result ---------- */
+.result{text-align:center;background:var(--card);border:2px solid var(--line);border-radius:30px;padding:26px 18px 22px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.result .glow{position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,#ffe6b8,transparent 65%);opacity:.8}
+.result .who{position:relative;animation:bob 2.6s ease-in-out infinite}
+.result h2{position:relative;font-family:"Baloo 2",var(--font);font-size:clamp(24px,6vw,32px);margin:8px 0 2px}
+.result .say{position:relative;color:var(--ink-soft);margin:0 auto 14px;max-width:26em;font-size:15.5px}
+.bigstars{position:relative;font-size:38px;letter-spacing:6px;color:#eadbc9;margin:2px 0 6px;height:46px}
+.bigstars b{color:var(--gold);font-weight:400;display:inline-block;animation:starPop .6s cubic-bezier(.22,1.6,.4,1) both}
+@keyframes starPop{from{opacity:0;transform:scale(0) rotate(-50deg)}to{opacity:1;transform:none}}
+.bigscore{position:relative;font-family:"Baloo 2",var(--font);font-size:44px;line-height:1;color:var(--brand-dk)}
+.bigscore small{font-size:18px;color:var(--ink-soft)}
+.actions{position:relative;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.review{margin-top:22px;text-align:left}
+.review h3{font-family:"Baloo 2",var(--font);font-size:19px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.rev{
+  background:var(--card);border:2px solid var(--line);border-left-width:7px;border-radius:16px;
+  padding:11px 13px;margin-bottom:9px;font-size:15px;animation:popIn .4s ease both
+}
+.rev.ok{border-left-color:var(--good)}
+.rev.no{border-left-color:var(--bad)}
+.rev .q{font-weight:600;margin-bottom:5px}
+.rev .a{font-size:14px;color:var(--ink-soft)}
+.rev .a b{color:var(--good-dk);font-weight:600}
+.rev .a s{color:var(--bad-dk);text-decoration-thickness:2px}
+/* ---------- confetti ---------- */
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+.confetti i{position:absolute;width:11px;height:14px;border-radius:3px;animation:fall 1.5s cubic-bezier(.3,.7,.5,1) forwards}
+@keyframes fall{0%{opacity:1;transform:translate3d(0,0,0) rotate(0)}100%{opacity:0;transform:translate3d(var(--dx),108vh,0) rotate(var(--rot))}}
+/* ---------- misc ---------- */
+.foot{text-align:center;color:var(--ink-soft);font-size:12.5px;margin-top:26px;line-height:1.7}
+.credit{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13.5px;font-weight:600;
+  color:var(--ink-soft);background:#fff;border:2px solid var(--line);border-radius:999px;padding:7px 15px;
+  box-shadow:0 3px 0 rgba(122,92,70,.10)}
+.credit .hb{display:inline-block;animation:hb 1.8s ease-in-out infinite;transform-origin:center}
+@keyframes hb{0%,100%{transform:scale(1)}16%{transform:scale(1.3)}32%{transform:scale(1)}48%{transform:scale(1.2)}64%{transform:scale(1)}}
+.fab{position:fixed;bottom:16px;right:16px;z-index:45;width:52px;height:52px;border-radius:50%;
+  border:2px solid var(--line);background:#fff;font-size:21px;line-height:1;cursor:pointer;
+  box-shadow:0 4px 0 rgba(122,92,70,.16),0 8px 20px rgba(122,92,70,.16);
+  transition:transform .16s cubic-bezier(.22,1.4,.4,1),opacity .16s}
+.fab:hover{transform:translateY(-3px) scale(1.06)}
+.fab:active{transform:translateY(2px)}
+.fab.off{opacity:.55}
+.fab:focus-visible{outline:3px solid #ffd7b0;outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#selftest-output{
+  position:relative;z-index:2;margin:16px 0;padding:14px;border-radius:16px;
+  background:#101820;color:#b8f5d0;font-family:ui-monospace,Menlo,monospace;font-size:12.5px;
+  white-space:pre-wrap;line-height:1.55;display:none
+}
+#selftest-output.show{display:block}
+@media (max-width:420px){
+  .grid{grid-template-columns:1fr 1fr;gap:11px}
+  .topic{padding:13px 11px 11px}
+  .topic .nm{font-size:16px}
+  .topic .meta{flex-direction:column;align-items:flex-start;gap:5px}
+  .qtext{margin-right:48px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+<div class="sky" id="sky" aria-hidden="true"></div>
+<div class="confetti" id="confetti" aria-hidden="true"></div>
+
+<main class="app">
+  <pre id="selftest-output"></pre>
+
+  <!-- ============ HOME ============ -->
+  <section class="screen active" id="screen-home">
+    <div class="hero">
+      <div class="crew" id="heroCrew" aria-hidden="true"></div>
+      <h1>Kuiz <em>Sejarah</em> Tingkatan 1</h1>
+      <p class="sub">Uji kefahaman kamu bab demi bab. Pilih satu topik, jawab 10 soalan, dan kumpul bintang!</p>
+      <span class="pill">📚 8 bab · 80 soalan · KSSM</span>
+    </div>
+
+    <div class="overall">
+      <span id="overallWho" aria-hidden="true"></span>
+      <div class="txt">
+        <b id="overallTitle">Jom mula!</b>
+        <small id="overallSub">Belum ada topik yang dicuba.</small>
+        <div class="bar"><i id="overallBar"></i></div>
+      </div>
+    </div>
+
+    <div class="grid" id="topicGrid"></div>
+
+    <p class="foot">
+      Kandungan berdasarkan Buku Teks Sejarah Tingkatan 1 (KSSM).<br>
+      Jawapan disimpan dalam pelayar kamu sahaja. 🌱
+      <br><button class="btn ghost" id="resetBtn" style="margin-top:12px;font-size:14px;padding:9px 16px">Kosongkan markah</button>
+      <br><span class="credit">made with<span class="hb">❤️</span>by Izanin Sofya</span>
+    </p>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="screen" id="screen-quiz">
+    <div class="qhead">
+      <button class="iconbtn" id="backBtn" title="Kembali ke senarai topik" aria-label="Kembali">←</button>
+      <div class="info">
+        <b id="quizTitle">Topik</b>
+        <div class="bar"><i id="quizBar"></i></div>
+      </div>
+      <span class="streak" id="streak">🔥 0</span>
+    </div>
+
+    <div class="qcard" id="qcard">
+      <div class="buddy" id="buddy" aria-hidden="true"></div>
+      <span class="qtag" id="qtag">Soalan 1 / 10</span>
+      <h2 class="qtext" id="qtext">—</h2>
+      <div class="opts" id="opts"></div>
+      <div class="fb" id="fb" role="status" aria-live="polite">
+        <p class="title" id="fbTitle"></p>
+        <p id="fbMsg"></p>
+        <p class="why">Nota ringkas</p>
+        <p id="fbWhy"></p>
+      </div>
+      <div class="qfoot"><button class="btn good" id="nextBtn" style="display:none">Seterusnya →</button></div>
+    </div>
+    <p class="hint">Tip: tekan <kbd>1</kbd>–<kbd>4</kbd> untuk menjawab, <kbd>Enter</kbd> untuk teruskan.</p>
+  </section>
+
+  <!-- ============ RESULT ============ -->
+  <section class="screen" id="screen-result">
+    <div class="result">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="who" id="resWho" aria-hidden="true"></div>
+      <div class="bigstars" id="resStars" aria-hidden="true"></div>
+      <h2 id="resTitle">Syabas!</h2>
+      <p class="bigscore" id="resScore">0<small>/10</small></p>
+      <p class="say" id="resSay"></p>
+      <div class="actions">
+        <button class="btn" id="retryBtn">🔁 Cuba lagi</button>
+        <button class="btn ghost" id="homeBtn">🏠 Pilih topik lain</button>
+      </div>
+    </div>
+    <div class="review">
+      <h3>📝 Semak jawapan kamu</h3>
+      <div id="reviewList"></div>
+    </div>
+    <p class="foot"><span class="credit">made with<span class="hb">❤️</span>by Izanin Sofya</span></p>
+  </section>
+</main>
+<button class="fab" id="soundBtn" title="Hidupkan atau matikan bunyi" aria-label="Hidupkan atau matikan bunyi" aria-pressed="true">🔊</button>
+<script>
+/* =========================================================
+   1. WATAK COMEL (cute mascots) — dijana sebagai SVG
+   ========================================================= */
+document.head.insertAdjacentHTML('beforeend',
+  '<style>' +
+  '.m-eye{transform-box:fill-box;transform-origin:center;animation:mblink 4.6s infinite}' +
+  '@keyframes mblink{0%,92%,100%{transform:scaleY(1)}95.5%{transform:scaleY(.1)}}' +
+  '.m-sway{transform-box:fill-box;transform-origin:50% 100%;animation:msway 2.4s ease-in-out infinite}' +
+  '@keyframes msway{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}' +
+  '.m-spin{transform-box:fill-box;transform-origin:center;animation:mspin 7s linear infinite}' +
+  '@keyframes mspin{to{transform:rotate(360deg)}}' +
+  '</style>');
+
+var INK = '#41312a';
+
+function face(mood, dy){
+  dy = dy || 0;
+  var g = '<g transform="translate(0,' + dy + ')">';
+  if (mood === 'happy'){
+    g += '<path d="M30 53 q7 -9 14 0" fill="none" stroke="' + INK + '" stroke-width="3.6" stroke-linecap="round"/>'
+       + '<path d="M56 53 q7 -9 14 0" fill="none" stroke="' + INK + '" stroke-width="3.6" stroke-linecap="round"/>'
+       + '<path d="M39 62 q11 13 22 0 q-11 5 -22 0z" fill="' + INK + '"/>';
+  } else if (mood === 'sad'){
+    g += '<ellipse class="m-eye" cx="37" cy="53" rx="5" ry="5.6" fill="' + INK + '"/>'
+       + '<ellipse class="m-eye" cx="63" cy="53" rx="5" ry="5.6" fill="' + INK + '"/>'
+       + '<path d="M30 48 q7 -6 14 -6" fill="none" stroke="' + INK + '" stroke-width="3" stroke-linecap="round"/>'
+       + '<path d="M70 48 q-7 -6 -14 -6" fill="none" stroke="' + INK + '" stroke-width="3" stroke-linecap="round"/>'
+       + '<path d="M33 60 q3.4 4.6 0 7 q-3.4 -2.4 0 -7z" fill="#7fc8ef"/>'
+       + '<path d="M42 68 q8 -7 16 0" fill="none" stroke="' + INK + '" stroke-width="3.4" stroke-linecap="round"/>';
+  } else if (mood === 'wow'){
+    g += '<ellipse cx="37" cy="52" rx="7" ry="8" fill="#fff" stroke="' + INK + '" stroke-width="2.4"/>'
+       + '<circle cx="37" cy="53" r="4" fill="' + INK + '"/>'
+       + '<ellipse cx="63" cy="52" rx="7" ry="8" fill="#fff" stroke="' + INK + '" stroke-width="2.4"/>'
+       + '<circle cx="63" cy="53" r="4" fill="' + INK + '"/>'
+       + '<ellipse cx="50" cy="67" rx="5.5" ry="6.5" fill="' + INK + '"/>';
+  } else {
+    g += '<ellipse class="m-eye" cx="37" cy="52" rx="5.6" ry="6.6" fill="' + INK + '"/>'
+       + '<circle cx="39" cy="49.6" r="2" fill="#fff"/>'
+       + '<ellipse class="m-eye" cx="63" cy="52" rx="5.6" ry="6.6" fill="' + INK + '"/>'
+       + '<circle cx="65" cy="49.6" r="2" fill="#fff"/>'
+       + '<path d="M43 63 q7 7 14 0" fill="none" stroke="' + INK + '" stroke-width="3.4" stroke-linecap="round"/>';
+  }
+  g += '<ellipse cx="26" cy="61" rx="5.6" ry="3.7" fill="#ff8fa3" opacity=".5"/>'
+     + '<ellipse cx="74" cy="61" rx="5.6" ry="3.7" fill="#ff8fa3" opacity=".5"/>';
+  return g + '</g>';
+}
+
+var MASCOTS = {
+  cikgu: { c:'#7ad0c4', dy:0,
+    back:'<path class="m-sway" d="M14 40 q-8 -6 -4 -14 q8 2 10 10z" fill="#5fc0b2"/>'
+        + '<path class="m-sway" d="M86 40 q8 -6 4 -14 q-8 2 -10 10z" fill="#5fc0b2"/>',
+    body:'<rect x="17" y="23" width="66" height="64" rx="30" fill="#7ad0c4"/>'
+        + '<path d="M31 24 q19 -13 38 0z" fill="#5fc0b2"/>'
+        + '<rect x="40" y="8" width="20" height="9" rx="4" fill="#5d4a3c"/>'
+        + '<rect x="26" y="14" width="48" height="7" rx="3.5" fill="#4b3a2f"/>'
+        + '<path d="M71 19 v8" stroke="#ffd166" stroke-width="2.6" stroke-linecap="round"/>'
+        + '<circle cx="71" cy="29" r="3.2" fill="#ffd166"/>',
+    front:'' },
+  buku: { c:'#8fb8f7', dy:0,
+    back:'<circle cx="82" cy="27" r="11" fill="none" stroke="#6b5140" stroke-width="5"/>'
+        + '<path d="M89 36 l8 8" stroke="#6b5140" stroke-width="6" stroke-linecap="round"/>'
+        + '<circle cx="82" cy="27" r="8" fill="#d7ecff" opacity=".8"/>',
+    body:'<rect x="17" y="24" width="66" height="63" rx="29" fill="#8fb8f7"/>'
+        + '<path d="M22 32 q28 -16 56 0 q-28 -8 -56 0z" fill="#6f9de6"/>',
+    front:'<rect x="30" y="76" width="40" height="16" rx="5" fill="#fff" stroke="#6f9de6" stroke-width="2.5"/>'
+        + '<path d="M50 77 v15" stroke="#6f9de6" stroke-width="2.5"/>' },
+  ais: { c:'#8ad8ff', dy:2,
+    back:'<g class="m-spin"><path d="M50 4 v18 M42 9 l8 6 8 -6 M41 18 l9 -5 9 5" stroke="#bfe9ff" stroke-width="3.4" fill="none" stroke-linecap="round"/></g>',
+    body:'<rect x="18" y="26" width="64" height="62" rx="17" fill="#8ad8ff"/>'
+        + '<path d="M18 34 q32 -14 64 0 v-8 q-32 -10 -64 0z" fill="#b9ebff"/>'
+        + '<path d="M66 32 l10 -8 M72 44 l9 -6" stroke="#ffffff" stroke-width="3" opacity=".7" stroke-linecap="round"/>',
+    front:'' },
+  gua: { c:'#e0a76f', dy:1,
+    back:'<path class="m-sway" d="M84 30 l10 -16 6 4 -9 17z" fill="#b98c5f"/>'
+        + '<path class="m-sway" d="M88 8 q12 0 11 12 q-11 2 -14 -6z" fill="#9aa0a6"/>',
+    body:'<rect x="17" y="25" width="66" height="62" rx="29" fill="#e0a76f"/>'
+        + '<path d="M20 30 q10 -12 15 -2 q6 -11 15 -2 q7 -10 15 -1 q7 -8 15 5 q-30 -14 -60 0z" fill="#8a5a3b"/>'
+        + '<rect x="30" y="72" width="40" height="18" rx="6" fill="#c98f5c"/>'
+        + '<path d="M30 78 q10 -6 20 0 q10 6 20 0" stroke="#8a5a3b" stroke-width="2.5" fill="none"/>',
+    front:'' },
+  bata: { c:'#f4a259', dy:1,
+    back:'<rect x="40" y="6" width="20" height="13" rx="4" fill="#e0813a"/><rect x="45" y="0" width="10" height="9" rx="3" fill="#ffc48c"/>',
+    body:'<rect x="17" y="25" width="66" height="62" rx="22" fill="#f4a259"/>'
+        + '<path d="M17 44 h66 M17 68 h66" stroke="#e0813a" stroke-width="2.6"/>'
+        + '<path d="M50 25 v19 M33 44 v24 M67 44 v24 M50 68 v19" stroke="#e0813a" stroke-width="2.6"/>',
+    front:'' },
+  piramid: { c:'#f6cf6b', dy:8,
+    back:'<circle cx="50" cy="16" r="11" fill="#ffd76b" opacity=".85"/>'
+        + '<g class="m-spin"><path d="M50 1 v6 M50 25 v6 M35 16 h6 M59 16 h6 M39 5 l4 4 M61 27 l-4 -4 M61 5 l-4 4 M39 27 l4 -4" stroke="#ffc53d" stroke-width="2.6" stroke-linecap="round"/></g>',
+    body:'<path d="M50 22 L92 90 H8 Z" fill="#f6cf6b" stroke="#e0b348" stroke-width="3" stroke-linejoin="round"/>'
+        + '<path d="M50 22 L92 90 H50 Z" fill="#e8bd55" opacity=".6"/>'
+        + '<path d="M22 72 h56" stroke="#e0b348" stroke-width="2.4"/>',
+    front:'' },
+  tiang: { c:'#e6ecf7', dy:2,
+    back:'<path class="m-sway" d="M18 24 q-9 -9 -2 -17 q10 4 9 14z" fill="#8bc98a"/>'
+        + '<path class="m-sway" d="M82 24 q9 -9 2 -17 q-10 4 -9 14z" fill="#8bc98a"/>',
+    body:'<rect x="20" y="28" width="60" height="58" rx="14" fill="#eef2fa"/>'
+        + '<rect x="13" y="20" width="74" height="12" rx="6" fill="#dbe3f1"/>'
+        + '<rect x="13" y="84" width="74" height="12" rx="6" fill="#dbe3f1"/>'
+        + '<path d="M33 34 v46 M50 34 v46 M67 34 v46" stroke="#cfd9ea" stroke-width="3.4" stroke-linecap="round"/>',
+    front:'' },
+  naga: { c:'#ff8fa3', dy:1,
+    back:'<path class="m-sway" d="M24 26 q-6 -14 4 -20 q6 8 4 18z" fill="#e8677f"/>'
+        + '<path class="m-sway" d="M76 26 q6 -14 -4 -20 q-6 8 -4 18z" fill="#e8677f"/>',
+    body:'<rect x="17" y="24" width="66" height="63" rx="29" fill="#ff8fa3"/>'
+        + '<path d="M50 20 q-9 -12 0 -18 q9 6 0 18z" fill="#ffd166"/>'
+        + '<path d="M22 58 q-10 3 -12 12 M78 58 q10 3 12 12" stroke="#e8677f" stroke-width="3.4" fill="none" stroke-linecap="round"/>'
+        + '<ellipse cx="50" cy="80" rx="17" ry="10" fill="#ffc2cd"/>',
+    front:'' },
+  bintang: { c:'#79c98d', dy:1,
+    back:'<path d="M50 2 a13 13 0 1 0 9 22 a10 10 0 1 1 -9 -22z" fill="#ffd166"/>'
+        + '<path d="M72 6 l2.4 5 5.4 .6 -4 3.7 1.1 5.3 -4.9 -2.7 -4.9 2.7 1.1 -5.3 -4 -3.7 5.4 -.6z" fill="#ffd166"/>',
+    body:'<rect x="17" y="26" width="66" height="61" rx="29" fill="#79c98d"/>'
+        + '<path d="M20 34 q30 -14 60 0 q-30 -7 -60 0z" fill="#5eb375"/>',
+    front:'<rect x="28" y="74" width="44" height="17" rx="5" fill="#fff8e7" stroke="#5eb375" stroke-width="2.5"/>'
+        + '<path d="M50 75 v16" stroke="#5eb375" stroke-width="2.5"/>'
+        + '<path d="M34 81 h10 M56 81 h10" stroke="#bcd9c3" stroke-width="2.2" stroke-linecap="round"/>' },
+  campur: { c:'#b79bea', dy:1,
+    back:'<g class="m-spin"><path d="M50 3 l2.6 6.4 6.4 2.6 -6.4 2.6 -2.6 6.4 -2.6 -6.4 -6.4 -2.6 6.4 -2.6z" fill="#ffd166"/></g>'
+        + '<path d="M16 22 l1.7 4.2 4.2 1.7 -4.2 1.7 -1.7 4.2 -1.7 -4.2 -4.2 -1.7 4.2 -1.7z" fill="#ffd166" opacity=".9"/>'
+        + '<path d="M86 24 l1.4 3.6 3.6 1.4 -3.6 1.4 -1.4 3.6 -1.4 -3.6 -3.6 -1.4 3.6 -1.4z" fill="#ffd166" opacity=".9"/>',
+    body:'<rect x="17" y="26" width="66" height="61" rx="29" fill="#b79bea"/>'
+        + '<path d="M20 34 q30 -14 60 0 q-30 -7 -60 0z" fill="#a084dd"/>',
+    front:'' }
+};
+
+function mascot(key, size, mood){
+  var m = MASCOTS[key] || MASCOTS.cikgu;
+  size = size || 64;
+  return '<svg class="mascot" width="' + size + '" height="' + size + '" viewBox="-2 -2 104 104" fill="none" role="img" aria-hidden="true">'
+       + (m.back || '') + m.body + face(mood || 'idle', m.dy || 0) + (m.front || '') + '</svg>';
+}
+
+/* =========================================================
+   2. BANK SOALAN — Sejarah Tingkatan 1 KSSM
+   s = soalan, p = pilihan, j = indeks jawapan betul, n = nota
+   ========================================================= */
+var TOPICS = [
+{
+  id:'b1', bab:'Bab 1', nama:'Mengenal Sejarah', mascot:'buku', warna:'#8fb8f7',
+  intro:'Sumber, kaedah dan konsep masa dalam sejarah.',
+  soalan:[
+    { s:'Perkataan "sejarah" berasal daripada perkataan Arab <b>syajaratun</b>. Apakah maksudnya?',
+      p:['Pokok','Batu','Sungai','Gua'], j:0,
+      n:'Syajaratun bermaksud pokok. Ia melambangkan salasilah atau keturunan yang berkembang seperti dahan pokok.' },
+    { s:'Siapakah tokoh yang digelar <b>Bapa Sejarah</b>?',
+      p:['Aristotle','Herodotus','Hippocrates','Homer'], j:1,
+      n:'Herodotus, sejarawan Yunani, digelar Bapa Sejarah kerana beliau merekodkan peristiwa berdasarkan penyelidikan dan bukan mitos semata-mata.' },
+    { s:'Antara berikut, yang manakah merupakan <b>sumber primer</b>?',
+      p:['Buku teks sejarah','Ensiklopedia','Batu bersurat','Majalah sejarah'], j:2,
+      n:'Sumber primer ialah bahan asli yang belum diolah, seperti batu bersurat, artifak, fosil dan manuskrip asal. Buku teks dan ensiklopedia ialah sumber sekunder.' },
+    { s:'Satu <b>alaf</b> bersamaan dengan berapa tahun?',
+      p:['10 tahun','100 tahun','1 000 tahun','10 000 tahun'], j:2,
+      n:'Dekad = 10 tahun, abad = 100 tahun, alaf = 1 000 tahun.' },
+    { s:'Tahun 1985 Masihi berada dalam abad yang ke berapa?',
+      p:['Abad ke-18','Abad ke-19','Abad ke-20','Abad ke-21'], j:2,
+      n:'Abad ke-20 merangkumi tahun 1901 hingga 2000. Maka 1985 berada dalam abad ke-20.' },
+    { s:'Kaedah kajian sejarah yang melibatkan <b>penggalian tapak</b> untuk mencari artifak dan fosil dikenali sebagai kaedah',
+      p:['lisan','bertulis','arkeologi','temu bual'], j:2,
+      n:'Kaedah arkeologi menggunakan ekskavasi (penggalian) tapak untuk menemui tinggalan seperti alat batu, tembikar dan rangka manusia.' },
+    { s:'Sejarawan Islam yang menulis kitab <b>Muqaddimah</b> ialah',
+      p:['Ibn Khaldun','Ibn Sina','Al-Khawarizmi','Ibn Battuta'], j:0,
+      n:'Ibn Khaldun menulis Muqaddimah yang membincangkan kaedah penulisan sejarah dan perkembangan masyarakat.' },
+    { s:'<b>Betul atau salah?</b> Sejarah ialah peristiwa benar yang berlaku pada masa lalu dan mempunyai bukti.',
+      p:['Betul','Salah'], j:0,
+      n:'Betul. Tiga ciri sejarah ialah ia benar-benar berlaku, berlaku pada masa lalu, dan disokong oleh bukti atau sumber.' },
+    { s:'Apakah maksud <b>kronologi</b> dalam pembelajaran sejarah?',
+      p:['Kajian tentang fosil manusia','Susunan peristiwa mengikut urutan masa','Cerita rakyat yang diwarisi','Lukisan pada dinding gua'], j:1,
+      n:'Kronologi ialah susunan peristiwa mengikut urutan masa, biasanya ditunjukkan menggunakan garis masa.' },
+    { s:'Kalendar <b>Hijrah</b> bermula berdasarkan peristiwa',
+      p:['kelahiran Nabi Muhammad SAW','pembukaan Kota Makkah','hijrah Nabi Muhammad SAW ke Madinah','kewafatan Nabi Muhammad SAW'], j:2,
+      n:'Takwim Hijrah dikira bermula pada tahun hijrah Nabi Muhammad SAW dari Makkah ke Madinah, iaitu tahun 622 Masihi.' }
+  ]
+},
+{
+  id:'b2', bab:'Bab 2', nama:'Zaman Air Batu', mascot:'ais', warna:'#8ad8ff',
+  intro:'Bumi membeku, mencair dan lahirnya Kepulauan Melayu.',
+  soalan:[
+    { s:'Apakah yang berlaku kepada bumi semasa <b>Zaman Air Batu</b>?',
+      p:['Suhu bumi menurun sehingga sebahagian besar bumi membeku','Suhu bumi meningkat sehingga laut kering','Bumi dilanda letusan gunung berapi setiap hari','Bumi diselaputi hutan tebal sepenuhnya'], j:0,
+      n:'Zaman Air Batu ialah tempoh apabila suhu bumi menurun secara berpanjangan sehingga sebahagian besar permukaan bumi diliputi ais tebal.' },
+    { s:'Lapisan ais yang sangat tebal dan bergerak perlahan di permukaan bumi dipanggil',
+      p:['glasier','delta','lagun','tundra'], j:0,
+      n:'Glasier ialah lapisan ais tebal yang bergerak perlahan dan mampu mengikis serta mengubah bentuk muka bumi.' },
+    { s:'Zaman Air Batu yang terakhir berlaku dalam zaman geologi yang dikenali sebagai',
+      p:['Zaman Holosen','Zaman Pleistosen','Zaman Mesozoik','Zaman Jurassic'], j:1,
+      n:'Zaman Pleistosen (kira-kira 2.5 juta hingga 10 000 tahun dahulu) merupakan zaman air batu yang terakhir.' },
+    { s:'Zaman selepas berakhirnya Zaman Air Batu, iaitu zaman yang kita alami sekarang, dikenali sebagai',
+      p:['Zaman Holosen','Zaman Pleistosen','Zaman Paleozoik','Zaman Kambrian'], j:0,
+      n:'Zaman Holosen bermula kira-kira 10 000 tahun dahulu apabila ais mencair dan suhu bumi menjadi lebih panas.' },
+    { s:'Daratan luas yang pernah menghubungkan Semenanjung Tanah Melayu, Sumatera, Jawa dan Borneo dikenali sebagai',
+      p:['Pentas Sahul','Pentas Sunda','Tanah Genting Kra','Pentas Benua Asia'], j:1,
+      n:'Pentas Sunda ialah daratan luas di bahagian barat Kepulauan Melayu yang tenggelam apabila aras laut naik.' },
+    { s:'<b>Pentas Sahul</b> pula menghubungkan kawasan',
+      p:['Sumatera, Jawa dan Borneo','Australia, Papua New Guinea dan Tasmania','India, Sri Lanka dan Myanmar','Jepun, Korea dan China'], j:1,
+      n:'Pentas Sahul terletak di bahagian timur dan menghubungkan Australia, Papua New Guinea serta Tasmania.' },
+    { s:'<b>Betul atau salah?</b> Semasa Zaman Air Batu, aras laut adalah lebih tinggi berbanding sekarang.',
+      p:['Betul','Salah'], j:1,
+      n:'Salah. Banyak air terkunci sebagai ais, jadi aras laut menjadi jauh lebih rendah dan lebih banyak daratan terdedah.' },
+    { s:'Bagaimanakah manusia purba dan haiwan berpindah ke Kepulauan Melayu semasa Zaman Air Batu?',
+      p:['Berjalan kaki merentasi daratan Pentas Sunda','Menaiki kapal layar besar','Menggunakan rakit buluh menyeberangi lautan','Melalui jambatan batu yang dibina'], j:0,
+      n:'Oleh sebab aras laut rendah, kawasan ini bersambung sebagai satu daratan luas, membolehkan migrasi dilakukan dengan berjalan kaki.' },
+    { s:'Apakah kesan utama <b>pencairan air batu</b> pada Zaman Holosen?',
+      p:['Aras laut naik dan sebahagian daratan tenggelam','Bumi menjadi lebih sejuk','Semua gunung berapi terpadam','Hutan hujan tropika hilang sepenuhnya'], j:0,
+      n:'Pencairan ais menaikkan aras laut, menenggelamkan kawasan pamah dan membentuk kepulauan, selat serta teluk.' },
+    { s:'Selat Melaka, Laut China Selatan dan Laut Jawa terbentuk akibat',
+      p:['pergerakan plato benua secara tiba-tiba','kenaikan aras laut selepas pencairan glasier','hakisan angin monsun','letusan gunung berapi Krakatau'], j:1,
+      n:'Apabila glasier mencair, air laut melimpah dan menenggelamkan Pentas Sunda, lalu membentuk Selat Melaka, Laut China Selatan dan Laut Jawa.' }
+  ]
+},
+{
+  id:'b3', bab:'Bab 3', nama:'Zaman Prasejarah', mascot:'gua', warna:'#e0a76f',
+  intro:'Paleolitik, Mesolitik, Neolitik dan Zaman Logam.',
+  soalan:[
+    { s:'Apakah maksud <b>Zaman Prasejarah</b>?',
+      p:['Zaman sebelum manusia mengenal sistem tulisan','Zaman sebelum kedatangan penjajah','Zaman selepas kemunculan tamadun','Zaman sebelum Zaman Air Batu'], j:0,
+      n:'Prasejarah bermaksud zaman sebelum wujudnya rekod bertulis. Maklumatnya diperoleh melalui kajian arkeologi.' },
+    { s:'Susunan yang <b>betul</b> bagi zaman prasejarah ialah',
+      p:['Neolitik → Mesolitik → Paleolitik → Logam','Paleolitik → Mesolitik → Neolitik → Logam','Logam → Neolitik → Paleolitik → Mesolitik','Mesolitik → Paleolitik → Neolitik → Logam'], j:1,
+      n:'Zaman Batu terbahagi kepada Paleolitik (Batu Lama), Mesolitik (Batu Pertengahan) dan Neolitik (Batu Baharu), diikuti Zaman Logam.' },
+    { s:'Tapak <b>Kota Tampan, Perak</b> terkenal sebagai',
+      p:['bengkel pembuatan alat batu Zaman Paleolitik','pusat pembuatan tembikar Zaman Neolitik','tapak penemuan gendang gangsa','pusat lukisan gua terbesar'], j:0,
+      n:'Kota Tampan di Lembah Lenggong ialah bengkel pembuatan alat batu Zaman Paleolitik, lengkap dengan serpihan batu dan batu teras.' },
+    { s:'Rangka <b>Manusia Perak</b> yang berusia kira-kira 11 000 tahun ditemui di',
+      p:['Gua Niah, Sarawak','Gua Gunung Runtuh, Lenggong, Perak','Bukit Tengkorak, Sabah','Gua Cha, Kelantan'], j:1,
+      n:'Manusia Perak ditemui di Gua Gunung Runtuh, Lenggong dan dikebumikan bersama bekalan kubur seperti alat batu dan makanan.' },
+    { s:'<b>Gua Niah</b>, sebuah tapak prasejarah penting, terletak di negeri',
+      p:['Sabah','Kelantan','Sarawak','Pahang'], j:2,
+      n:'Gua Niah di Sarawak terkenal dengan penemuan rangka manusia dan lukisan gua, manakala Gua Madai terletak di Sabah.' },
+    { s:'Apakah perubahan besar cara hidup manusia pada <b>Zaman Neolitik</b>?',
+      p:['Mula bercucuk tanam dan menternak binatang','Mula menggunakan besi untuk berperang','Mula hidup berpindah-randah','Mula berdagang dengan India'], j:0,
+      n:'Pada Zaman Neolitik manusia mula bercucuk tanam dan menternak, lalu menetap di satu kawasan dan membina petempatan kekal.' },
+    { s:'<b>Bukit Tengkorak</b> di Sabah terkenal sebagai pusat pembuatan',
+      p:['alat besi','tembikar','gendang gangsa','manik kaca'], j:1,
+      n:'Bukit Tengkorak dianggap sebagai antara bengkel pembuatan tembikar terbesar di Asia Tenggara pada Zaman Neolitik.' },
+    { s:'<b>Gendang gangsa</b> dari Zaman Logam ditemui di',
+      p:['Kampung Sungai Lang, Selangor','Kota Tampan, Perak','Gua Cha, Kelantan','Lembah Bujang, Kedah'], j:0,
+      n:'Gendang gangsa jenis Dong Son ditemui di Kampung Sungai Lang, Selangor dan beberapa tapak lain seperti Kampung Pencu, Johor.' },
+    { s:'Lukisan gua prasejarah yang terkenal di Perak terdapat di',
+      p:['Gua Tambun','Gua Musang','Gua Kelam','Gua Charas'], j:0,
+      n:'Gua Tambun berhampiran Ipoh mempamerkan lukisan menggunakan hematit merah yang menggambarkan haiwan dan manusia.' },
+    { s:'Penemuan <b>bekalan kubur</b> bersama mayat menunjukkan bahawa masyarakat prasejarah',
+      p:['tidak mempunyai sebarang kepercayaan','percaya adanya kehidupan selepas mati','hanya menyimpan makanan lebihan','menyembah raja mereka'], j:1,
+      n:'Bekalan kubur seperti alat batu, makanan dan perhiasan menunjukkan kepercayaan tentang kehidupan selepas mati.' }
+  ]
+},
+{
+  id:'b4', bab:'Bab 4', nama:'Mengenali Tamadun', mascot:'bata', warna:'#f4a259',
+  intro:'Maksud tamadun dan ciri-ciri asasnya.',
+  soalan:[
+    { s:'Perkataan <b>tamadun</b> berasal daripada bahasa Arab <i>madana</i> yang bermaksud',
+      p:['membuka bandar dan memperhalus budi pekerti','berpindah dari satu tempat ke satu tempat','mengumpul makanan di hutan','membina kubu pertahanan'], j:0,
+      n:'Madana membawa maksud membuka atau membina bandar serta memperhalus budi pekerti dan tingkah laku masyarakat.' },
+    { s:'Perkataan <b>civilization</b> berasal daripada perkataan Latin <i>civitas</i> yang bermaksud',
+      p:['perang','bandar atau kota','raja','tulisan'], j:1,
+      n:'Civitas bermaksud bandar atau kota, menunjukkan kaitan rapat antara tamadun dengan kehidupan berbandar.' },
+    { s:'Sarjana Islam yang menggunakan istilah <b>umran</b> dan <b>hadarah</b> bagi maksud tamadun ialah',
+      p:['Ibn Sina','Ibn Khaldun','Al-Razi','Al-Battani'], j:1,
+      n:'Ibn Khaldun menggunakan istilah umran (kawasan tanah yang didiami dan maju) dan hadarah (kehidupan berbandar).' },
+    { s:'Antara berikut, yang manakah <b>bukan</b> ciri sesebuah tamadun?',
+      p:['Petempatan kekal','Sistem tulisan','Hidup berpindah-randah','Pengkhususan pekerjaan'], j:2,
+      n:'Hidup berpindah-randah (nomad) ialah ciri masyarakat prasejarah awal, bukan ciri tamadun yang menekankan petempatan kekal.' },
+    { s:'Mengapakah kebanyakan tamadun awal muncul di <b>lembah sungai</b>?',
+      p:['Tanah subur dan bekalan air yang berterusan','Udara di situ lebih sejuk','Mudah menyembunyikan diri daripada musuh','Terdapat banyak gua untuk berteduh'], j:0,
+      n:'Lembah sungai menyediakan tanah aluvium yang subur, bekalan air untuk pertanian, serta laluan pengangkutan dan perdagangan.' },
+    { s:'<b>Pengkhususan pekerjaan</b> dalam sesebuah tamadun berlaku apabila',
+      p:['semua orang menjadi petani','hasil pertanian berlebihan membolehkan sebahagian orang membuat kerja lain','penduduk berhijrah ke kawasan baharu','raja mengarahkan rakyat berperang'], j:1,
+      n:'Lebihan hasil pertanian membebaskan sebahagian masyarakat untuk menjadi tukang, pedagang, tentera atau pendeta.' },
+    { s:'Petempatan kekal mula terbentuk apabila manusia',
+      p:['pandai berburu binatang besar','tahu bercucuk tanam dan menternak','menemui logam besi','mencipta sistem tulisan'], j:1,
+      n:'Kemahiran bercucuk tanam dan menternak pada Zaman Neolitik membolehkan manusia menetap di satu kawasan secara kekal.' },
+    { s:'Mengapakah <b>sistem pemerintahan</b> penting dalam sesebuah tamadun?',
+      p:['Untuk mengatur masyarakat dan menjaga keamanan','Untuk menambah bilangan penduduk','Untuk menghentikan aktiviti perdagangan','Untuk menghalang kemunculan bandar'], j:0,
+      n:'Sistem pemerintahan mengatur pentadbiran, menguatkuasakan undang-undang dan menjaga keamanan serta keselamatan masyarakat.' },
+    { s:'<b>Betul atau salah?</b> Sistem tulisan penting kerana membolehkan urusan direkod dan ilmu diwariskan.',
+      p:['Betul','Salah'], j:0,
+      n:'Betul. Tulisan membolehkan rekod perdagangan, undang-undang, agama dan ilmu disimpan serta diwariskan kepada generasi seterusnya.' },
+    { s:'Antara berikut, yang manakah menunjukkan <b>peningkatan teknologi</b> dalam tamadun awal?',
+      p:['Sistem pengairan dan terusan','Aktiviti memungut buah-buahan','Tinggal di dalam gua','Membuat alat daripada serpihan batu'], j:0,
+      n:'Pembinaan sistem pengairan, terusan, roda dan bangunan besar menunjukkan kemajuan teknologi masyarakat bertamadun.' }
+  ]
+},
+{
+  id:'b5', bab:'Bab 5', nama:'Tamadun Awal Dunia', mascot:'piramid', warna:'#f6cf6b',
+  intro:'Mesopotamia, Mesir Purba, Indus dan Huang He.',
+  soalan:[
+    { s:'<b>Mesopotamia</b> bermaksud "tanah antara dua sungai". Sungai tersebut ialah',
+      p:['Sungai Nil dan Sungai Indus','Sungai Tigris dan Sungai Euphrates','Sungai Huang He dan Sungai Yangtze','Sungai Ganges dan Sungai Indus'], j:1,
+      n:'Tamadun Mesopotamia berkembang di antara Sungai Tigris dan Sungai Euphrates, di kawasan Iraq pada hari ini.' },
+    { s:'Sistem tulisan tamadun Mesopotamia yang berbentuk pepaku dikenali sebagai',
+      p:['hieroglif','cuneiform','piktograf','Sanskrit'], j:1,
+      n:'Cuneiform ditulis dengan menekan kayu bermata tajam pada bongkah tanah liat, menghasilkan bentuk seperti pepaku.' },
+    { s:'Kod undang-undang bertulis yang pertama di dunia ialah',
+      p:['Kod Undang-undang Hammurabi','Undang-undang 12 Batu Bersurat','Piagam Madinah','Hukum Kanun Melaka'], j:0,
+      n:'Kod Hammurabi dari Babylon mengandungi undang-undang yang diukir pada tugu batu, meliputi hukuman, perdagangan dan keluarga.' },
+    { s:'Tamadun Mesir Purba digelar <b>"Hadiah Sungai Nil"</b> oleh',
+      p:['Aristotle','Herodotus','Plato','Socrates'], j:1,
+      n:'Herodotus menggelar Mesir sebagai Hadiah Sungai Nil kerana banjir tahunan sungai itu menyuburkan tanah pertanian mereka.' },
+    { s:'Sistem tulisan tamadun Mesir Purba ialah',
+      p:['hieroglif','cuneiform','oracle bone','Latin'], j:0,
+      n:'Hieroglif ialah tulisan bergambar Mesir Purba yang ditulis pada dinding kuil, tugu dan kertas papirus.' },
+    { s:'Dua bandar terancang yang terkenal dalam tamadun Indus ialah',
+      p:['Ur dan Babylon','Mohenjo-Daro dan Harappa','Anyang dan Luoyang','Athens dan Sparta'], j:1,
+      n:'Mohenjo-Daro dan Harappa dibina dengan susun atur jalan bersilang tepat serta sistem perparitan dan kumbahan yang tersusun.' },
+    { s:'Tamadun <b>Huang He</b> berkembang di China dan diperintah oleh dinasti awal, iaitu',
+      p:['Dinasti Shang','Dinasti Gupta','Dinasti Maurya','Dinasti Umaiyah'], j:0,
+      n:'Dinasti Shang merupakan dinasti awal tamadun Huang He dengan pusat pemerintahan di Kota Anyang.' },
+    { s:'<b>Ziggurat</b> dalam tamadun Mesopotamia berfungsi sebagai',
+      p:['kubu pertahanan tentera','rumah ibadat bertingkat','makam raja','pasar utama kota'], j:1,
+      n:'Ziggurat ialah kuil bertingkat yang menjadi pusat keagamaan sekali gus pusat pentadbiran masyarakat Mesopotamia.' },
+    { s:'<b>Piramid</b> di Mesir Purba dibina sebagai',
+      p:['makam firaun','kubu tentera','gudang bijirin','istana kediaman'], j:0,
+      n:'Piramid ialah makam firaun yang disimpan bersama mumia dan harta benda kerana kepercayaan tentang kehidupan selepas mati.' },
+    { s:'<b>Betul atau salah?</b> Tamadun Indus terkenal dengan bandar terancang serta sistem kumbahan yang tersusun.',
+      p:['Betul','Salah'], j:0,
+      n:'Betul. Mohenjo-Daro dan Harappa mempunyai jalan lurus bersilang, rumah bata dan sistem pembetungan bawah tanah.' }
+  ]
+},
+{
+  id:'b6', bab:'Bab 6', nama:'Tamadun Yunani & Rom', mascot:'tiang', warna:'#dbe3f1',
+  intro:'Negara kota, demokrasi, falsafah dan empayar.',
+  soalan:[
+    { s:'Unit politik utama dalam tamadun Yunani ialah',
+      p:['empayar','negara kota','kesultanan','republik persekutuan'], j:1,
+      n:'Yunani terbahagi kepada negara kota (city state) yang bebas mentadbir sendiri, seperti Athens, Sparta dan Corinth.' },
+    { s:'Negara kota Yunani yang memperkenalkan sistem <b>demokrasi</b> ialah',
+      p:['Sparta','Athens','Corinth','Thebes'], j:1,
+      n:'Athens mengamalkan demokrasi apabila warganegara lelaki dewasa berhak menyertai Dewan Perhimpunan untuk membuat keputusan.' },
+    { s:'Negara kota Yunani yang terkenal dengan <b>latihan ketenteraan</b> yang ketat ialah',
+      p:['Athens','Sparta','Olympia','Delphi'], j:1,
+      n:'Sparta mementingkan kekuatan tentera; kanak-kanak lelaki dilatih menjadi askar sejak kecil.' },
+    { s:'Siapakah yang digelar <b>Bapa Perubatan</b>?',
+      p:['Hippocrates','Pythagoras','Archimedes','Homer'], j:0,
+      n:'Hippocrates mengasaskan amalan perubatan berdasarkan pemerhatian saintifik dan etika perubatan yang masih digunakan hari ini.' },
+    { s:'Epik <b>Iliad</b> dan <b>Odyssey</b> dihasilkan oleh',
+      p:['Homer','Plato','Aristotle','Socrates'], j:0,
+      n:'Homer menghasilkan epik Iliad dan Odyssey yang menjadi karya sastera terpenting tamadun Yunani.' },
+    { s:'Guru kepada Plato, yang terkenal dengan kaedah soal jawab dalam falsafah, ialah',
+      p:['Aristotle','Socrates','Herodotus','Pythagoras'], j:1,
+      n:'Urutan tiga ahli falsafah agung Yunani ialah Socrates, muridnya Plato, dan murid Plato iaitu Aristotle.' },
+    { s:'Sukan <b>Olimpik</b> pertama diadakan di',
+      p:['Rom, Itali','Olympia, Yunani','Athens, Yunani','Sparta, Yunani'], j:1,
+      n:'Sukan Olimpik purba diadakan di Olympia sebagai penghormatan kepada tuhan Zeus dalam kepercayaan masyarakat Yunani.' },
+    { s:'Undang-undang bertulis tamadun Rom yang terkenal ialah',
+      p:['Kod Hammurabi','Undang-undang 12 Batu Bersurat','Piagam Madinah','Undang-undang Manu'], j:1,
+      n:'Undang-undang 12 Batu Bersurat diukir pada papan dan dipamerkan di khalayak supaya semua rakyat mengetahui hak mereka.' },
+    { s:'<b>Akueduk</b> yang dibina oleh orang Rom berfungsi untuk',
+      p:['menyalurkan air bersih ke bandar','menyimpan senjata tentera','tempat pertandingan gladiator','memuja tuhan Jupiter'], j:0,
+      n:'Akueduk ialah sistem saluran air yang membawa air bersih dari kawasan pergunungan ke bandar Rom.' },
+    { s:'<b>Betul atau salah?</b> Bahasa Latin daripada tamadun Rom menjadi asas kepada banyak bahasa Eropah hari ini.',
+      p:['Betul','Salah'], j:0,
+      n:'Betul. Bahasa Itali, Perancis, Sepanyol dan Portugis berasaskan bahasa Latin, dan istilah Latin masih digunakan dalam sains dan undang-undang.' }
+  ]
+},
+{
+  id:'b7', bab:'Bab 7', nama:'Tamadun India & China', mascot:'naga', warna:'#ff8fa3',
+  intro:'Maurya, Gupta, Dinasti Chin dan Dinasti Han.',
+  soalan:[
+    { s:'Dinasti <b>Maurya</b> di India diasaskan oleh',
+      p:['Chandragupta Maurya','Raja Asoka','Samudragupta','Shih Huang Ti'], j:0,
+      n:'Chandragupta Maurya mengasaskan Dinasti Maurya dan berjaya menyatukan sebahagian besar wilayah India.' },
+    { s:'Raja <b>Asoka</b> terkenal kerana',
+      p:['membina Tembok Besar','menyebarkan ajaran Buddha dan mengamalkan dasar keamanan','mencipta kertas','menghapuskan sistem tulisan'], j:1,
+      n:'Selepas Perang Kalinga yang dahsyat, Asoka menyesal, memeluk agama Buddha dan menyebarkan nilai keamanan melalui titah pada tugu batu.' },
+    { s:'Zaman kegemilangan tamadun India dalam bidang sains, matematik dan kesusasteraan berlaku pada zaman',
+      p:['Dinasti Maurya','Dinasti Gupta','Dinasti Han','Dinasti Shang'], j:1,
+      n:'Dinasti Gupta digelar Zaman Keemasan India kerana kemajuan pesat dalam matematik, astronomi, perubatan dan seni.' },
+    { s:'Sumbangan penting tamadun India kepada bidang matematik ialah',
+      p:['konsep angka sifar dan sistem angka','penciptaan kompas','penciptaan kertas','sistem kalendar 365 hari'], j:0,
+      n:'Konsep sifar dan sistem angka India berkembang menjadi sistem angka yang digunakan di seluruh dunia hari ini.' },
+    { s:'Pusat pengajian tinggi terkenal di India purba ialah',
+      p:['Universiti Nalanda','Baitulhikmah','Akademi Athens','Perpustakaan Alexandria'], j:0,
+      n:'Universiti Nalanda dan Taxila menjadi pusat ilmu yang menarik pelajar dari China, Tibet dan Asia Tengah.' },
+    { s:'<b>Tembok Besar China</b> mula dibina secara besar-besaran pada zaman pemerintahan',
+      p:['Dinasti Han','Dinasti Chin','Dinasti Shang','Dinasti Tang'], j:1,
+      n:'Shih Huang Ti dari Dinasti Chin menyambung dan memperkukuh tembok sedia ada bagi menghalang serangan dari utara.' },
+    { s:'<b>Shih Huang Ti</b> terkenal kerana',
+      p:['menyatukan China dan menyeragamkan tulisan, timbangan serta sukatan','memperkenalkan agama Buddha di China','mencipta kompas','membuka Jalan Sutera ke Rom'], j:0,
+      n:'Shih Huang Ti menyatukan China dan menyeragamkan sistem tulisan, mata wang, timbangan dan sukatan untuk memudahkan pentadbiran.' },
+    { s:'<b>Jalan Sutera</b> yang menghubungkan China dengan dunia barat berkembang pesat pada zaman',
+      p:['Dinasti Han','Dinasti Chin','Dinasti Shang','Dinasti Gupta'], j:0,
+      n:'Jalan Sutera pada zaman Dinasti Han menjadi laluan perdagangan sutera, rempah, teknologi dan idea antara Timur dan Barat.' },
+    { s:'Siapakah yang dikaitkan dengan penciptaan <b>kertas</b> di China?',
+      p:['Tsai Lun','Confucius','Lao Tze','Chang Heng'], j:0,
+      n:'Tsai Lun pada zaman Dinasti Han memperkenalkan kaedah membuat kertas daripada kulit kayu, kain buruk dan jaring ikan.' },
+    { s:'Ajaran <b>Confucius</b> menekankan',
+      p:['nilai moral, hormat kepada keluarga dan ketaatan kepada pemerintah','pemujaan dewa perang','penaklukan wilayah asing','penolakan sistem pendidikan'], j:0,
+      n:'Ajaran Confucius menekankan keharmonian masyarakat melalui nilai moral, hormat-menghormati dan tanggungjawab sosial.' }
+  ]
+},
+{
+  id:'b8', bab:'Bab 8', nama:'Tamadun Islam & Sumbangannya', pendek:'Tamadun Islam', mascot:'bintang', warna:'#79c98d',
+  intro:'Dari Zaman Jahiliah ke kegemilangan ilmu Islam.',
+  soalan:[
+    { s:'Zaman sebelum kedatangan Islam di Tanah Arab dikenali sebagai',
+      p:['Zaman Jahiliah','Zaman Hijrah','Zaman Abbasiyah','Zaman Umaiyah'], j:0,
+      n:'Zaman Jahiliah bermaksud zaman kejahilan, apabila masyarakat Arab mengamalkan penyembahan berhala, perbalahan kabilah dan amalan keji.' },
+    { s:'Nabi Muhammad SAW dilahirkan di kota',
+      p:['Madinah','Makkah','Damsyik','Baghdad'], j:1,
+      n:'Baginda dilahirkan di Makkah pada tahun 570 Masihi, iaitu Tahun Gajah.' },
+    { s:'Peristiwa <b>Hijrah</b> ialah perpindahan Nabi Muhammad SAW dan umat Islam dari Makkah ke',
+      p:['Madinah','Taif','Baghdad','Kufah'], j:0,
+      n:'Umat Islam berhijrah ke Madinah (dahulunya Yathrib) dan di situlah lahirnya sebuah negara Islam yang tersusun.' },
+    { s:'<b>Piagam Madinah</b> dianggap penting kerana ia merupakan',
+      p:['perjanjian damai dengan Rom','perlembagaan bertulis yang pertama di dunia','senarai cukai perdagangan','buku undang-undang jenayah'], j:1,
+      n:'Piagam Madinah menjamin hak, kebebasan beragama dan tanggungjawab semua penduduk Madinah termasuk orang bukan Islam.' },
+    { s:'Khalifah pertama dalam pemerintahan <b>Khulafa al-Rasyidin</b> ialah',
+      p:['Umar al-Khattab','Abu Bakar al-Siddiq','Uthman bin Affan','Ali bin Abi Talib'], j:1,
+      n:'Empat Khulafa al-Rasyidin mengikut urutan ialah Abu Bakar al-Siddiq, Umar al-Khattab, Uthman bin Affan dan Ali bin Abi Talib.' },
+    { s:'Pusat pemerintahan Kerajaan <b>Bani Abbasiyah</b> ialah',
+      p:['Damsyik','Baghdad','Kaherah','Cordova'], j:1,
+      n:'Bani Abbasiyah berpusat di Baghdad, manakala Bani Umaiyah sebelumnya berpusat di Damsyik.' },
+    { s:'<b>Baitulhikmah</b> di Baghdad berfungsi sebagai',
+      p:['pusat ilmu, perpustakaan dan penterjemahan','kubu pertahanan tentera','istana khalifah','pasar rempah utama'], j:0,
+      n:'Baitulhikmah menjadi pusat penyelidikan dan penterjemahan karya Yunani, Parsi dan India ke dalam bahasa Arab.' },
+    { s:'<b>Al-Khawarizmi</b> terkenal atas sumbangannya dalam bidang',
+      p:['perubatan','matematik','seni bina','pelayaran'], j:1,
+      n:'Al-Khawarizmi memperkenalkan algebra dan namanya menjadi asas kepada perkataan algoritma yang digunakan dalam komputer hari ini.' },
+    { s:'Kitab <b>al-Qanun fi al-Tibb</b> karya Ibn Sina ialah rujukan dalam bidang',
+      p:['astronomi','perubatan','sejarah','kimia'], j:1,
+      n:'Kitab perubatan Ibn Sina menjadi rujukan utama di universiti Eropah selama beratus-ratus tahun.' },
+    { s:'Tokoh Islam yang terkenal sebagai <b>pengembara</b> dan menghasilkan catatan perjalanan <i>Rihlah</i> ialah',
+      p:['Ibn Battuta','Al-Razi','Jabir ibn Hayyan','Al-Biruni'], j:0,
+      n:'Ibn Battuta mengembara sejauh kira-kira 120 000 kilometer termasuk ke Asia Tenggara, dan merekodkannya dalam Rihlah.' }
+  ]
+}
+];
+
+/* =========================================================
+   3. ENJIN KUIZ
+   ========================================================= */
+var MIX = { id:'mix', bab:'Cabaran', nama:'Cabaran Rambang', mascot:'campur', warna:'#b79bea',
+            intro:'15 soalan rawak daripada semua bab.', jumlah:15 };
+
+var $ = function(id){ return document.getElementById(id); };
+var STORE_KEY = 'sejarahT1_kuiz_v1';
+var state = null;
+
+/* ---- simpanan ---- */
+function loadStore(){
+  try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; }
+  catch(e){ return {}; }
+}
+function saveStore(s){
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(s)); } catch(e){}
+}
+function bestOf(id){ var s = loadStore(); return (s[id] && typeof s[id].best === 'number') ? s[id].best : null; }
+function recordBest(id, skor, jumlah){
+  var s = loadStore();
+  var cur = s[id] || { best:0, tries:0 };
+  cur.tries = (cur.tries || 0) + 1;
+  if (skor > (cur.best || 0)) cur.best = skor;
+  cur.total = jumlah;
+  s[id] = cur; saveStore(s);
+}
+
+/* ---- pembantu ---- */
+function bintangUntuk(skor, jumlah){
+  var p = jumlah ? (skor / jumlah) * 100 : 0;
+  if (p >= 90) return 3;
+  if (p >= 70) return 2;
+  if (p >= 50) return 1;
+  return 0;
+}
+function starRow(n, cls){
+  var out = '';
+  for (var i = 0; i < 3; i++) out += (i < n ? '<b' + (cls ? ' style="animation-delay:' + (i * 0.14) + 's"' : '') + '>★</b>' : '★');
+  return out;
+}
+function shuffle(arr){
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+function showScreen(name){
+  ['home','quiz','result'].forEach(function(k){
+    $('screen-' + k).classList.toggle('active', k === name);
+  });
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+/* ---- bunyi (dijana dengan Web Audio, tiada fail luaran) ---- */
+var AudioCtx = window.AudioContext || window.webkitAudioContext;
+var actx = null, bunyiHidup = true;
+try { bunyiHidup = localStorage.getItem('sejarahT1_bunyi') !== 'off'; } catch(e){}
+
+function audioCtx(){
+  if (!AudioCtx) return null;
+  try {
+    if (!actx) actx = new AudioCtx();
+    if (actx.state === 'suspended' && actx.resume) actx.resume();
+    return actx;
+  } catch(e){ return null; }
+}
+function nada(freq, mula, tempoh, jenis, kuat, turunKe){
+  var c = audioCtx(); if (!c) return;
+  try {
+    var t0 = c.currentTime + mula;
+    var o = c.createOscillator(), g = c.createGain();
+    o.type = jenis || 'triangle';
+    o.frequency.setValueAtTime(freq, t0);
+    if (turunKe) o.frequency.exponentialRampToValueAtTime(turunKe, t0 + tempoh);
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.exponentialRampToValueAtTime(kuat || 0.16, t0 + 0.014);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + tempoh);
+    o.connect(g); g.connect(c.destination);
+    o.start(t0); o.stop(t0 + tempoh + 0.03);
+  } catch(e){}
+}
+function bunyiBetul(){
+  if (!bunyiHidup) return;
+  [523.25, 659.25, 783.99, 1046.50].forEach(function(f, i){
+    nada(f, i * 0.072, 0.26, 'triangle', 0.15);
+  });
+}
+function bunyiSalah(){
+  if (!bunyiHidup) return;
+  nada(392.00, 0, 0.30, 'sine', 0.15, 261.63);
+  nada(261.63, 0.16, 0.34, 'sine', 0.11);
+}
+function bunyiSiap(sempurna){
+  if (!bunyiHidup) return;
+  [523.25, 659.25, 783.99, 1046.50, 1318.51].forEach(function(f, i){
+    nada(f, i * 0.105, 0.32, 'triangle', 0.14);
+  });
+  if (sempurna) [1046.50, 1318.51, 1567.98].forEach(function(f){
+    nada(f, 0.60, 0.75, 'triangle', 0.11);
+  });
+}
+function kemasBunyiUI(){
+  var b = $('soundBtn');
+  if (!b) return;
+  b.textContent = bunyiHidup ? '🔊' : '🔇';
+  b.classList.toggle('off', !bunyiHidup);
+  b.setAttribute('aria-pressed', String(bunyiHidup));
+}
+
+/* ---- confetti ---- */
+var CONF_COLS = ['#ff9a5a','#ffd166','#37c98a','#8ad8ff','#ff8fa3','#b79bea'];
+function confetti(n, fromTop){
+  var box = $('confetti');
+  n = n || 18;
+  for (var i = 0; i < n; i++){
+    var p = document.createElement('i');
+    p.style.left = (8 + Math.random() * 84) + 'vw';
+    p.style.top = (fromTop ? -6 : 14 + Math.random() * 22) + 'vh';
+    p.style.background = CONF_COLS[i % CONF_COLS.length];
+    p.style.setProperty('--dx', (Math.random() * 180 - 90) + 'px');
+    p.style.setProperty('--rot', (Math.random() * 900 - 450) + 'deg');
+    p.style.animationDelay = (Math.random() * 0.25) + 's';
+    box.appendChild(p);
+    (function(el){ setTimeout(function(){ el.remove(); }, 2000); })(p);
+  }
+}
+
+/* ---- raikan tamat topik ---- */
+function raikan(pct){
+  confetti(48, true);
+  setTimeout(function(){ confetti(38, true); }, 420);
+  if (pct >= 80) setTimeout(function(){ confetti(44, true); }, 840);
+  if (pct === 100) setTimeout(function(){ confetti(56, true); }, 1250);
+}
+
+/* ---- langit berhias ---- */
+function buildSky(){
+  var shapes = ['☁️','✨','⭐','🍃','☁️','✨'];
+  var sky = $('sky'), html = '';
+  for (var i = 0; i < 10; i++){
+    var size = 14 + Math.random() * 18;
+    var x = (i % 2 === 0) ? Math.random() * 11 : 88 + Math.random() * 9;
+    html += '<i style="left:' + x + 'vw;top:' + (4 + Math.random() * 88) + 'vh;font-size:' + size
+          + 'px;animation-duration:' + (7 + Math.random() * 8) + 's;animation-delay:' + (-Math.random() * 8) + 's">'
+          + shapes[i % shapes.length] + '</i>';
+  }
+  sky.innerHTML = html;
+}
+
+/* =========================================================
+   4. SKRIN UTAMA
+   ========================================================= */
+function renderHome(){
+  $('heroCrew').innerHTML = mascot('cikgu', 62, 'happy') + mascot('gua', 50) + mascot('bintang', 54);
+  $('overallWho').innerHTML = mascot('campur', 48, 'idle');
+
+  var jumlahSoalan = 0, jumlahBest = 0, dicuba = 0;
+  TOPICS.forEach(function(t){
+    jumlahSoalan += t.soalan.length;
+    var b = bestOf(t.id);
+    if (b !== null){ jumlahBest += b; dicuba++; }
+  });
+  var pct = jumlahSoalan ? Math.round((jumlahBest / jumlahSoalan) * 100) : 0;
+  $('overallTitle').textContent = dicuba === 0 ? 'Jom mula!' : 'Markah terbaik: ' + jumlahBest + ' / ' + jumlahSoalan;
+  $('overallSub').textContent = dicuba === 0
+    ? 'Belum ada topik yang dicuba. Pilih mana-mana bab di bawah.'
+    : dicuba + ' daripada ' + TOPICS.length + ' bab telah dicuba · ' + pct + '% dikuasai';
+  setTimeout(function(){ $('overallBar').style.width = pct + '%'; }, 120);
+
+  var grid = $('topicGrid'), html = '';
+  TOPICS.forEach(function(t, i){
+    var b = bestOf(t.id), n = t.soalan.length;
+    var bintang = b === null ? 0 : bintangUntuk(b, n);
+    var chipCls = b === null ? '' : (b === n ? 'perfect' : 'done');
+    var chipTxt = b === null ? 'Belum dicuba' : 'Terbaik ' + b + '/' + n;
+    html += '<button class="topic" data-topic="' + t.id + '" style="animation-delay:' + (i * 0.05) + 's">'
+          + '<span class="tint" style="background:' + t.warna + '"></span>'
+          + '<span class="row"><span class="who">' + mascot(t.mascot, 52) + '</span>'
+          + '<span><span class="bab">' + t.bab + '</span><span class="nm">' + (t.pendek || t.nama) + '</span></span></span>'
+          + '<span class="meta"><span class="stars">' + starRow(bintang) + '</span>'
+          + '<span class="score-chip ' + chipCls + '">' + chipTxt + '</span></span></button>';
+  });
+  var mb = bestOf(MIX.id);
+  html += '<button class="topic" data-topic="mix" style="animation-delay:.45s;grid-column:1/-1">'
+        + '<span class="tint" style="background:' + MIX.warna + '"></span>'
+        + '<span class="row"><span class="who">' + mascot(MIX.mascot, 52, 'wow') + '</span>'
+        + '<span><span class="bab">Bonus</span><span class="nm">🎲 ' + MIX.nama + '</span>'
+        + '<span class="bab" style="text-transform:none;letter-spacing:0;font-weight:500">' + MIX.intro + '</span></span></span>'
+        + '<span class="meta"><span class="stars">' + starRow(mb === null ? 0 : bintangUntuk(mb, MIX.jumlah)) + '</span>'
+        + '<span class="score-chip ' + (mb === null ? '' : 'done') + '">'
+        + (mb === null ? 'Belum dicuba' : 'Terbaik ' + mb + '/' + MIX.jumlah) + '</span></span></button>';
+  grid.innerHTML = html;
+
+  Array.prototype.forEach.call(grid.querySelectorAll('.topic'), function(btn){
+    btn.addEventListener('click', function(){ mulaKuiz(btn.getAttribute('data-topic')); });
+  });
+}
+
+/* =========================================================
+   5. KUIZ
+   ========================================================= */
+function mulaKuiz(id){
+  var topik, senarai;
+  if (id === 'mix'){
+    topik = MIX;
+    var semua = [];
+    TOPICS.forEach(function(t){
+      t.soalan.forEach(function(q){ semua.push({ q:q, dari:t.bab + ' · ' + t.nama }); });
+    });
+    senarai = shuffle(semua).slice(0, MIX.jumlah);
+  } else {
+    topik = TOPICS.filter(function(t){ return t.id === id; })[0];
+    if (!topik) return;
+    senarai = shuffle(topik.soalan).map(function(q){ return { q:q, dari:topik.bab + ' · ' + topik.nama }; });
+  }
+  state = { topik:topik, senarai:senarai, idx:0, skor:0, streak:0, streakTerbaik:0, jawapan:[], dijawab:false };
+  $('quizTitle').textContent = topik.bab === 'Cabaran' ? MIX.nama : topik.bab + ' · ' + topik.nama;
+  showScreen('quiz');
+  paparSoalan();
+}
+
+function paparSoalan(){
+  var item = state.senarai[state.idx], q = item.q;
+  state.dijawab = false;
+
+  $('qtag').textContent = 'Soalan ' + (state.idx + 1) + ' / ' + state.senarai.length
+                        + (state.topik.id === 'mix' ? ' · ' + item.dari : '');
+  $('qtext').innerHTML = q.s;
+  $('buddy').className = 'buddy';
+  $('buddy').innerHTML = mascot(state.topik.mascot, 76, 'idle');
+  $('quizBar').style.width = Math.round((state.idx / state.senarai.length) * 100) + '%';
+  $('streak').textContent = '🔥 ' + state.streak;
+
+  var opts = $('opts'), html = '';
+  q.p.forEach(function(teks, i){
+    html += '<button class="opt" data-i="' + i + '" style="animation-delay:' + (i * 0.06) + 's">'
+          + '<span class="key">' + (i + 1) + '</span>'
+          + '<span class="lab">' + teks + '</span>'
+          + '<span class="mark"></span></button>';
+  });
+  opts.innerHTML = html;
+  Array.prototype.forEach.call(opts.querySelectorAll('.opt'), function(b){
+    b.addEventListener('click', function(){ jawab(parseInt(b.getAttribute('data-i'), 10)); });
+  });
+
+  $('fb').className = 'fb';
+  $('nextBtn').style.display = 'none';
+}
+
+function jawab(pilihan){
+  if (state.dijawab) return;
+  state.dijawab = true;
+  var item = state.senarai[state.idx], q = item.q;
+  var betul = pilihan === q.j;
+
+  state.jawapan.push({ q:q, pilihan:pilihan, betul:betul, dari:item.dari });
+  if (betul){
+    state.skor++;
+    state.streak++;
+    if (state.streak > state.streakTerbaik) state.streakTerbaik = state.streak;
+  } else {
+    state.streak = 0;
+  }
+
+  var btns = $('opts').querySelectorAll('.opt');
+  Array.prototype.forEach.call(btns, function(b, i){
+    b.disabled = true;
+    if (i === q.j){ b.classList.add('correct'); b.querySelector('.mark').textContent = '✓'; }
+    else if (i === pilihan){ b.classList.add('wrong'); b.querySelector('.mark').textContent = '✕'; }
+    else { b.classList.add('dim'); }
+  });
+
+  var buddy = $('buddy');
+  buddy.innerHTML = mascot(state.topik.mascot, 76, betul ? 'happy' : 'sad');
+  buddy.className = 'buddy ' + (betul ? 'jump' : 'woops');
+
+  $('quizBar').style.width = Math.round(((state.idx + 1) / state.senarai.length) * 100) + '%';
+  var streakEl = $('streak');
+  streakEl.textContent = '🔥 ' + state.streak;
+  if (betul){ streakEl.classList.remove('pulse'); void streakEl.offsetWidth; streakEl.classList.add('pulse'); }
+  else { $('qcard').classList.remove('shake'); void $('qcard').offsetWidth; $('qcard').classList.add('shake'); }
+
+  var pujian = ['Tepat sekali!','Bagus!','Hebat!','Betul!','Syabas!'];
+  var sokong = ['Tak mengapa!','Hampir!','Cuba lagi nanti!','Jangan risau!'];
+  $('fbTitle').innerHTML = betul
+    ? '🎉 ' + pujian[Math.floor(Math.random() * pujian.length)]
+    : '💡 ' + sokong[Math.floor(Math.random() * sokong.length)];
+  $('fbMsg').innerHTML = betul
+    ? 'Jawapan kamu betul.'
+    : 'Jawapan yang betul ialah <b>' + q.p[q.j] + '</b>.';
+  $('fbWhy').innerHTML = q.n;
+  $('fb').className = 'fb show ' + (betul ? 'ok' : 'no');
+
+  if (betul){ confetti(state.streak >= 3 ? 22 : 12); bunyiBetul(); } else { bunyiSalah(); }
+
+  var nb = $('nextBtn');
+  nb.textContent = (state.idx === state.senarai.length - 1) ? 'Lihat keputusan 🎯' : 'Seterusnya →';
+  nb.style.display = 'inline-block';
+  nb.focus({ preventScroll:true });
+}
+
+function seterusnya(){
+  if (!state.dijawab) return;
+  if (state.idx < state.senarai.length - 1){
+    state.idx++;
+    paparSoalan();
+  } else {
+    $('quizBar').style.width = '100%';
+    paparKeputusan();
+  }
+}
+
+/* =========================================================
+   6. KEPUTUSAN
+   ========================================================= */
+function paparKeputusan(){
+  var jumlah = state.senarai.length, skor = state.skor;
+  var pct = Math.round((skor / jumlah) * 100);
+  var bintang = bintangUntuk(skor, jumlah);
+  recordBest(state.topik.id, skor, jumlah);
+
+  var tajuk, kata, mood;
+  if (pct === 100){ tajuk = 'Sempurna! 🏆'; kata = 'Semua jawapan betul. Kamu memang jaguh ' + state.topik.nama + '!'; mood = 'happy'; }
+  else if (pct >= 80){ tajuk = 'Hebat sungguh! 🌟'; kata = 'Kefahaman kamu sangat baik. Sedikit sahaja lagi untuk sempurna.'; mood = 'happy'; }
+  else if (pct >= 60){ tajuk = 'Bagus! 👍'; kata = 'Kamu sudah faham kebanyakan isi bab ini. Ulang kaji bahagian yang tersilap.'; mood = 'idle'; }
+  else if (pct >= 40){ tajuk = 'Boleh tahan! 💪'; kata = 'Separuh jalan sudah. Baca semula nota bab ini, kemudian cuba lagi.'; mood = 'idle'; }
+  else { tajuk = 'Jangan putus asa! 🌱'; kata = 'Setiap sejarawan hebat bermula dari sini. Semak nota ringkas di bawah dan cuba sekali lagi.'; mood = 'sad'; }
+
+  $('resWho').innerHTML = mascot(state.topik.mascot, 96, mood);
+  $('resTitle').textContent = tajuk;
+  $('resStars').innerHTML = starRow(bintang, true);
+  $('resScore').innerHTML = skor + '<small>/' + jumlah + '</small>';
+  $('resSay').innerHTML = kata + (state.streakTerbaik >= 3
+    ? '<br><span class="pill" style="margin-top:8px">🔥 Rentetan terbaik: ' + state.streakTerbaik + ' berturut-turut</span>'
+    : '');
+
+  var html = '';
+  state.jawapan.forEach(function(a, i){
+    html += '<div class="rev ' + (a.betul ? 'ok' : 'no') + '" style="animation-delay:' + (i * 0.04) + 's">'
+          + '<div class="q">' + (a.betul ? '✅' : '❌') + ' ' + (i + 1) + '. ' + a.q.s + '</div>'
+          + '<div class="a">' + (a.betul
+              ? 'Jawapan kamu: <b>' + a.q.p[a.q.j] + '</b>'
+              : 'Kamu pilih: <s>' + a.q.p[a.pilihan] + '</s> · Jawapan betul: <b>' + a.q.p[a.q.j] + '</b>')
+          + '<br>' + a.q.n + '</div></div>';
+  });
+  $('reviewList').innerHTML = html;
+
+  showScreen('result');
+  raikan(pct);
+  bunyiSiap(pct === 100);
+}
+
+/* =========================================================
+   7. KAWALAN
+   ========================================================= */
+$('nextBtn').addEventListener('click', seterusnya);
+$('backBtn').addEventListener('click', function(){ renderHome(); showScreen('home'); });
+$('homeBtn').addEventListener('click', function(){ renderHome(); showScreen('home'); });
+$('retryBtn').addEventListener('click', function(){ mulaKuiz(state.topik.id); });
+$('resetBtn').addEventListener('click', function(){
+  if (confirm('Kosongkan semua markah tersimpan?')){
+    try { localStorage.removeItem(STORE_KEY); } catch(e){}
+    renderHome();
+  }
+});
+$('soundBtn').addEventListener('click', function(){
+  bunyiHidup = !bunyiHidup;
+  try { localStorage.setItem('sejarahT1_bunyi', bunyiHidup ? 'on' : 'off'); } catch(e){}
+  kemasBunyiUI();
+  if (bunyiHidup) nada(880, 0, 0.16, 'triangle', 0.13);
+});
+document.addEventListener('keydown', function(e){
+  if (!$('screen-quiz').classList.contains('active')) return;
+  if (e.key === 'Enter' || e.key === ' '){
+    if (state && state.dijawab && document.activeElement !== $('nextBtn')){ e.preventDefault(); seterusnya(); }
+    return;
+  }
+  var n = parseInt(e.key, 10);
+  if (n >= 1 && n <= 4 && state && !state.dijawab){
+    var btn = $('opts').querySelector('.opt[data-i="' + (n - 1) + '"]');
+    if (btn) btn.click();
+  }
+});
+
+buildSky();
+kemasBunyiUI();
+renderHome();
+
+/* =========================================================
+   8. UJIAN KENDIRI  —  buka dengan ?selftest=1
+   ========================================================= */
+function runSelfTest(){
+  var pass = 0, fail = 0, lines = [];
+  function t(nama, syarat, butiran){
+    if (syarat){ pass++; lines.push('  ok   ' + nama); }
+    else { fail++; lines.push('  FAIL ' + nama + (butiran ? '  → ' + butiran : '')); }
+  }
+  var simpanan = null;
+  try { simpanan = localStorage.getItem(STORE_KEY); localStorage.removeItem(STORE_KEY); } catch(e){}
+
+  lines.push('── STRUKTUR DATA ──');
+  t('8 topik wujud', TOPICS.length === 8, 'dapat ' + TOPICS.length);
+  var ids = {}, semuaSoalan = [], teksDilihat = {};
+  TOPICS.forEach(function(top){
+    t(top.bab + ' ada 10 soalan', top.soalan.length === 10, 'dapat ' + top.soalan.length);
+    t(top.bab + ' id unik', !ids[top.id]); ids[top.id] = 1;
+    t(top.bab + ' ada watak sah', !!MASCOTS[top.mascot], top.mascot);
+    var jSet = {};
+    top.soalan.forEach(function(q, i){
+      var tag = top.id + '.q' + (i + 1);
+      semuaSoalan.push(q);
+      var okSoalan = typeof q.s === 'string' && q.s.trim().length > 10;
+      var okPil = Array.isArray(q.p) && q.p.length >= 2 && q.p.length <= 4
+                  && q.p.every(function(x){ return typeof x === 'string' && x.trim().length > 0; });
+      var okJ = Number.isInteger(q.j) && q.j >= 0 && q.j < (q.p || []).length;
+      var okNota = typeof q.n === 'string' && q.n.trim().length > 20;
+      var pilUnik = new Set(q.p.map(function(x){ return x.toLowerCase(); })).size === q.p.length;
+      var tagSeimbang = (q.s.match(/<b>/g) || []).length === (q.s.match(/<\/b>/g) || []).length
+                     && (q.s.match(/<i>/g) || []).length === (q.s.match(/<\/i>/g) || []).length;
+      var dup = !!teksDilihat[q.s]; teksDilihat[q.s] = 1;
+      if (!(okSoalan && okPil && okJ && okNota && pilUnik && tagSeimbang && !dup)){
+        t(tag + ' sah', false,
+          [!okSoalan && 'teks soalan', !okPil && 'pilihan', !okJ && 'indeks jawapan',
+           !okNota && 'nota', !pilUnik && 'pilihan berulang', !tagSeimbang && 'tag HTML',
+           dup && 'soalan berulang'].filter(Boolean).join(', '));
+      } else { pass++; }
+      jSet[q.j] = 1;
+    });
+    t(top.bab + ' jawapan tidak semua pada kedudukan sama', Object.keys(jSet).length >= 2);
+  });
+  t('jumlah soalan = 80', semuaSoalan.length === 80, 'dapat ' + semuaSoalan.length);
+
+  lines.push('── WATAK & SVG ──');
+  Object.keys(MASCOTS).forEach(function(k){
+    var svg = mascot(k, 60, 'idle');
+    var doc = new DOMParser().parseFromString(svg, 'image/svg+xml');
+    var rosak = doc.querySelector('parsererror');
+    t('watak "' + k + '" menjana SVG sah', !rosak && svg.indexOf('<svg') === 0 && svg.indexOf('</svg>') > 0,
+      rosak ? rosak.textContent.slice(0, 60) : '');
+  });
+  ['idle','happy','sad','wow'].forEach(function(m){
+    var doc = new DOMParser().parseFromString(mascot('cikgu', 60, m), 'image/svg+xml');
+    t('mimik "' + m + '" sah', !doc.querySelector('parsererror'));
+  });
+
+  lines.push('── SKRIN UTAMA ──');
+  renderHome();
+  t('grid ada 9 kad (8 bab + cabaran)', $('topicGrid').children.length === 9,
+    'dapat ' + $('topicGrid').children.length);
+  t('setiap kad ada SVG watak', $('topicGrid').querySelectorAll('svg').length === 9);
+  t('kad pertama boleh diklik', typeof $('topicGrid').children[0].click === 'function');
+
+  lines.push('── SIMULASI MENJAWAB ──');
+  function main(id, mod){
+    mulaKuiz(id);
+    var n = state.senarai.length, langkah = 0;
+    while (langkah < n){
+      var q = state.senarai[state.idx].q;
+      var pilih = (mod === 'betul') ? q.j : (q.j === 0 ? 1 : 0);
+      var btn = document.querySelector('#opts .opt[data-i="' + pilih + '"]');
+      if (!btn) return { ralat:'butang hilang pada soalan ' + (langkah + 1) };
+      btn.click();
+      seterusnya();
+      langkah++;
+    }
+    return { skor:state.skor, jumlah:n };
+  }
+  TOPICS.forEach(function(top){
+    var r = main(top.id, 'betul');
+    t(top.bab + ': semua betul → 10/10', !r.ralat && r.skor === 10 && r.jumlah === 10,
+      r.ralat || (r.skor + '/' + r.jumlah));
+  });
+  var r0 = main('b1', 'salah');
+  t('Bab 1: semua salah → 0/10', !r0.ralat && r0.skor === 0, r0.ralat || String(r0.skor));
+  t('skrin keputusan aktif', $('screen-result').classList.contains('active'));
+  t('senarai semakan ada 10 item', $('reviewList').children.length === 10,
+    'dapat ' + $('reviewList').children.length);
+  t('markah dipaparkan', $('resScore').textContent.indexOf('/10') > -1);
+
+  var rm = main('mix', 'betul');
+  t('Cabaran Rambang → 15/15', !rm.ralat && rm.skor === 15 && rm.jumlah === 15,
+    rm.ralat || (rm.skor + '/' + rm.jumlah));
+
+  lines.push('── SIMPANAN & BINTANG ──');
+  t('markah terbaik Bab 1 disimpan (10)', bestOf('b1') === 10, String(bestOf('b1')));
+  t('markah terbaik tidak turun selepas markah rendah', bestOf('b1') === 10);
+  t('bintang 10/10 = 3', bintangUntuk(10, 10) === 3);
+  t('bintang 7/10 = 2', bintangUntuk(7, 10) === 2);
+  t('bintang 5/10 = 1', bintangUntuk(5, 10) === 1);
+  t('bintang 2/10 = 0', bintangUntuk(2, 10) === 0);
+  renderHome();
+  t('kad Bab 1 papar "Terbaik 10/10"', $('topicGrid').innerHTML.indexOf('Terbaik 10/10') > -1);
+
+  lines.push('── PAPAN KEKUNCI ──');
+  mulaKuiz('b1');
+  var soalanPertama = state.senarai[0].q;
+  var betulIdx = soalanPertama.j;
+  document.dispatchEvent(new KeyboardEvent('keydown', { key:String(betulIdx + 1), bubbles:true }));
+  t('kekunci nombor menjawab soalan', state.dijawab === true);
+  t('markah bertambah bagi jawapan betul', state.skor === 1);
+  t('maklum balas dipaparkan', $('fb').classList.contains('show'));
+  t('butang seterusnya kelihatan', $('nextBtn').style.display !== 'none');
+
+  lines.push('── BUNYI ──');
+  t('butang bunyi wujud', !!$('soundBtn'));
+  var bunyiAsal = bunyiHidup;
+  t('fungsi bunyi tidak melontar ralat', (function(){
+    try { bunyiBetul(); bunyiSalah(); bunyiSiap(true); nada(440, 0, 0.1, 'sine', 0.1, 220); return true; }
+    catch(e){ return false; }
+  })());
+  $('soundBtn').click();
+  t('togol menukar keadaan bunyi', bunyiHidup !== bunyiAsal);
+  t('ikon butang mengikut keadaan', $('soundBtn').textContent === (bunyiHidup ? '🔊' : '🔇'));
+  t('keadaan senyap dihormati', (function(){
+    var sunyi = !bunyiHidup ? true : (function(){ bunyiHidup = false; return true; })();
+    var ok = true;
+    try { bunyiBetul(); bunyiSalah(); } catch(e){ ok = false; }
+    return ok && sunyi;
+  })());
+  bunyiHidup = bunyiAsal; kemasBunyiUI();
+  t('togol kembali kepada keadaan asal', bunyiHidup === bunyiAsal);
+  t('ikon dikemas kini selepas pemulihan', $('soundBtn').textContent === (bunyiHidup ? '🔊' : '🔇'));
+
+  lines.push('── RAIKAN TAMAT TOPIK ──');
+  var sebelumKonfeti = $('confetti').children.length;
+  raikan(100);
+  t('konfeti dijana apabila topik tamat', $('confetti').children.length > sebelumKonfeti,
+    'sebelum ' + sebelumKonfeti + ', selepas ' + $('confetti').children.length);
+  var selepasRendah = $('confetti').children.length;
+  raikan(30);
+  t('konfeti dijana walaupun markah rendah', $('confetti').children.length > selepasRendah);
+
+  lines.push('── KREDIT & META ──');
+  t('kredit dipaparkan pada skrin utama',
+    $('screen-home').textContent.indexOf('made with') > -1 && $('screen-home').textContent.indexOf('Izanin Sofya') > -1);
+  t('kredit dipaparkan pada skrin keputusan',
+    $('screen-result').textContent.indexOf('Izanin Sofya') > -1);
+  t('favicon terbenam disertakan', !!document.querySelector('link[rel="icon"]'));
+  t('meta penerangan ada', !!document.querySelector('meta[name="description"]'));
+  t('tiada fail luaran selain fon', document.querySelectorAll('script[src], img[src]').length === 0);
+
+  lines.push('── PEMULIHAN ──');
+  try { localStorage.removeItem(STORE_KEY); if (simpanan !== null) localStorage.setItem(STORE_KEY, simpanan); } catch(e){}
+  renderHome(); showScreen('home');
+  t('kembali ke skrin utama', $('screen-home').classList.contains('active'));
+
+  var jum = pass + fail;
+  var kepala = (fail === 0 ? 'SELFTEST_RESULT: PASS ' : 'SELFTEST_RESULT: FAIL ') + pass + '/' + jum
+             + (fail ? '  (' + fail + ' gagal)' : '  (semua lulus)');
+  var out = $('selftest-output');
+  out.className = 'show';
+  out.style.color = fail ? '#ffb3bd' : '#b8f5d0';
+  out.textContent = kepala + '\n\n' + lines.join('\n');
+  window.__selftest = { pass:pass, fail:fail, total:jum, ok:fail === 0, lines:lines };
+  (fail ? console.error : console.log)(kepala);
+  return window.__selftest;
+}
+if (/[?&]selftest=1/.test(location.search)) runSelfTest();
+</script>
+</body>
+</html>

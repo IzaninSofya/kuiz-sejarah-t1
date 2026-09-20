@@ -299,6 +299,4 @@ made with ❤️ by **Izanin Sofya**
 
 The questions were written from scratch against the **Sejarah Tingkatan 1 KSSM** syllabus and the Ministry of Education's [digital textbook listing](https://sites.google.com/moe-dl.edu.my/bidang-kemanusiaan-sebaru/panitia-sejarah/buku-teks-digital). No text is reproduced from the textbook — the questions and explanations are original wording covering the same syllabus content. Verify against the current textbook before classroom use, since syllabus details are revised from time to time.
 
-**Licence:** not set yet. If you want others to fork and adapt this freely — which is the point of publishing it — add an `MIT` licence file to the repo and name it here. GitHub can create one for you: *Add file → Create new file → type `LICENSE` → Choose a licence template*.
-
 If you do reuse or adapt this, a link back is appreciated but not required. If you build a version for another subject, I'd love to see it.
